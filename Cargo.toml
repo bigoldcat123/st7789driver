@@ -1,6 +1,6 @@
 [package]
 name = "super_simple_st7789driver"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 
 keywords = ["st7789", "driver", "tft_display","embedded"]
