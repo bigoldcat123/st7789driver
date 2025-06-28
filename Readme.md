@@ -49,7 +49,8 @@ let mut lcd = St7789::new(spi, cs, dc, MyTimer);
 lcd.init().await.unwrap();
 lcd.set_row(0, 319).await.unwrap();
 lcd.set_col(0, 239).await.unwrap();
-lcd.write_memory().await.unwrap();
+lcd.write_memory().await.unwrap();// send write data command
+lcd.write_data(&[0x00]).await.unwrap();// send real data
 ```
 
 ## API Overview

@@ -3,6 +3,10 @@ name = "super_simple_st7789driver"
 version = "0.1.0"
 edition = "2024"
 
+keywords = ["st7789", "tft display", "tft lcd", "display driver", "embedded", "rust"]
+
+repository = "https://github.com/bigoldcat123/st7789driver"
+
 [dependencies]
 defmt = "1.0.1"
 embedded-hal = "1.0.0"
