@@ -3,7 +3,7 @@ name = "super_simple_st7789driver"
 version = "0.1.0"
 edition = "2024"
 
-keywords = ["st7789", "tft display", "tft lcd", "display driver", "embedded", "rust"]
+keywords = ["st7789", "display driver", "embedded"]
 
 repository = "https://github.com/bigoldcat123/st7789driver"
 
