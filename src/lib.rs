@@ -14,7 +14,7 @@
 //! use st7789driver::{St7789, Timer_};
 //! use embedded_hal::digital::OutputPin;
 //! use embedded_hal_async::spi::SpiBus;
-//! 
+//!
 //! struct MyTimer;
 //! impl Timer_ for MyTimer {
 //!     fn delay_ms(&self, ms: u64) -> impl core::future::Future<Output = ()> {
@@ -23,10 +23,10 @@
 //!         }
 //!     }
 //! }
-//! 
+//!
 //! // Assume you have implementations for spi, cs, and dc
 //! let mut lcd = St7789::new(spi, cs, dc, MyTimer);
-//! 
+//!
 //! // Initialization and basic operations
 //! lcd.init().await.unwrap();
 //! lcd.set_row(0, 319).await.unwrap();
@@ -80,12 +80,13 @@ impl<T: SpiBus, OUTPUT: OutputPin, TIMER: Timer_> St7789<T, OUTPUT, TIMER> {
     /// * `cs` - Chip select pin
     /// * `dc` - Data/command pin
     /// * `timer` - Timer for delays
-    pub fn new(spi: T, mut cs: OUTPUT, mut dc: OUTPUT, timer: TIMER) -> Self {
+    /// * `delay_ms` - Delay Time
+    pub fn new(spi: T, mut cs: OUTPUT, mut dc: OUTPUT, timer: TIMER, delay_ms: u64) -> Self {
         cs.set_high().unwrap();
         dc.set_high().unwrap();
         Self {
             spi,
-            delay_ms: 1,
+            delay_ms,
             cs,
             dc,
             is_initiated: false,
