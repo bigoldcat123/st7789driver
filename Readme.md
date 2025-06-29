@@ -37,7 +37,7 @@ struct MyTimer;
 impl Timer_ for MyTimer {
     fn delay_ms(&self, ms: u64) -> impl core::future::Future<Output = ()> {
         async move {
-            // Implement your async delay here
+            // Implement your async delay here , 1ms would be ok
         }
     }
 }
