@@ -103,7 +103,7 @@ impl<T: SpiBus, OUTPUT: OutputPin, TIMER: Timer_> St7789<T, OUTPUT, TIMER> {
         self.timer.delay_ms(self.delay_ms).await;
         self.write_command(&[st7789_cmd::RESET]).await?;
         // after reset must delay
-        self.timer.delay_ms(self.delay_ms).await;
+        self.timer.delay_ms(self.delay_ms * 100).await;
         self.write_command(&[
             st7789_cmd::SLEEP_OUT,
             st7789_cmd::DISPLAY_ON,
